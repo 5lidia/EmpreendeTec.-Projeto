@@ -1,0 +1,9 @@
+{% extends 'base.html' %}{% block title %}Entrar · Empreende Tec{% endblock %}
+{% block content %}
+<form class="form estreito" method="post"><h1 class="serif">Entrar</h1>
+  <label>Usuário ou e-mail<input name="usuario" required autofocus></label>
+  <label>Senha<input name="senha" type="password" required></label>
+  <button class="btn">Entrar</button>
+  <p class="muted">Ainda não tem conta? <a href="{{ url_for('cadastro') }}">Cadastre-se</a></p>
+</form>
+{% endblock %}

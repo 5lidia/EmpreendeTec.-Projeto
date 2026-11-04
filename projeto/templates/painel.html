@@ -1,0 +1,14 @@
+{% extends 'base.html' %}{% block title %}Meu painel · Empreende Tec{% endblock %}
+{% block content %}
+<div class="cab"><h1 class="serif">Olá, {{ user.nome.split()[0] }}</h1><a class="btn" href="{{ url_for('novo_produto') }}">Novo anúncio</a></div>
+<div class="stats"><div><strong>{{ itens|length }}</strong>anúncios</div><div><strong>{{ views }}</strong>visualizações</div><div><strong>{{ esgotados }}</strong>esgotados</div></div>
+<p><a href="{{ url_for('perfil') }}">Ver meu perfil</a></p>
+{% if itens %}
+<div class="tabela"><table><thead><tr><th>Anúncio</th><th>Tipo</th><th>Preço</th><th>Qtd.</th><th>Status</th><th>Views</th><th></th></tr></thead><tbody>
+{% for i in itens %}<tr>
+  <td><a href="{{ url_for('produto', produto_id=i.id) }}">{{ i.nome }}</a></td><td>{{ i.tipo }}</td><td>{{ i.preco|brl }}</td><td>{{ i.quantidade }}</td><td>{{ i.status }}</td><td>{{ i.views }}</td>
+  <td class="acoes-linha"><a href="{{ url_for('editar', produto_id=i.id) }}">Editar</a>
+  <form method="post" action="{{ url_for('excluir', produto_id=i.id) }}" onsubmit="return confirm('Excluir {{ i.nome|e }}?')"><button class="link perigo">Excluir</button></form></td></tr>{% endfor %}
+</tbody></table></div>
+{% else %}<p class="vazio">Você ainda não tem anúncios. <a href="{{ url_for('novo_produto') }}">Publique o primeiro.</a></p>{% endif %}
+{% endblock %}

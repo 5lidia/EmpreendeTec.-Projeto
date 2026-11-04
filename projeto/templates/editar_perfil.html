@@ -1,0 +1,18 @@
+{% extends 'base.html' %}{% block title %}Editar perfil · Empreende Tec{% endblock %}
+{% block content %}
+<form class="form estreito" method="post" enctype="multipart/form-data"><h1 class="serif">Editar perfil</h1>
+  <label>Nome completo<input name="nome" value="{{ user.nome }}" required></label>
+  <label>Turma<input name="turma" value="{{ user.turma }}" required></label>
+  <label>E-mail<input name="email" type="email" value="{{ user.email }}" required></label>
+  <label>Telefone<input name="telefone" value="{{ user.telefone }}" required></label>
+  <label>Nome da loja<input name="loja" value="{{ user.loja }}"></label>
+  <label>Usuário<input name="usuario" value="{{ user.usuario }}" required></label>
+  <label>Nova senha (deixe vazio para manter)<input name="senha" type="password"></label>
+  <label>Confirmar nova senha<input name="confirmar_senha" type="password"></label>
+  <label>Nova foto<input name="foto" type="file" accept="image/*"></label>
+  <button class="btn">Salvar alterações</button>
+</form>
+<form class="form estreito" method="post" action="{{ url_for('excluir_conta') }}" onsubmit="return confirm('Excluir sua conta e todos os seus anúncios? Não dá para desfazer.')">
+  <h2 class="serif">Excluir conta</h2><p class="muted">Apaga seu perfil e todos os seus anúncios.</p><button class="btn perigo-btn">Excluir minha conta</button>
+</form>
+{% endblock %}

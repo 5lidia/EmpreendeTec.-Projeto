@@ -1,0 +1,16 @@
+{% extends 'base.html' %}{% block title %}{{ 'Editar anúncio' if p.id else 'Novo anúncio' }} · Empreende Tec{% endblock %}
+{% block content %}
+<form class="form estreito" method="post" enctype="multipart/form-data"><h1 class="serif">{{ 'Editar anúncio' if p.id else 'Novo anúncio' }}</h1>
+  <label>Tipo<select name="tipo">{% for t in TIPOS %}<option {{ 'selected' if p.tipo == t }}>{{ t }}</option>{% endfor %}</select></label>
+  <label>Nome<input name="nome" value="{{ p.nome }}" required></label>
+  <label>Categoria<select name="categoria_id">{% for c in categorias %}<option value="{{ c.id }}" {{ 'selected' if p.categoria_id == c.id }}>{{ c.nome }}</option>{% endfor %}</select></label>
+  <label>Descrição<textarea name="descricao" rows="3" required>{{ p.descricao }}</textarea></label>
+  <label>Preço (R$)<input name="preco" value="{{ p.preco }}" inputmode="decimal" required></label>
+  <label>Quantidade ou vagas<input name="quantidade" type="number" min="0" value="{{ p.quantidade }}" required></label>
+  <label>Pagamento<select name="pagamento">{% for m in ['PIX', 'Dinheiro', 'Cartão', 'A combinar'] %}<option {{ 'selected' if p.pagamento == m }}>{{ m }}</option>{% endfor %}</select></label>
+  <label>Local de entrega ou atendimento<input name="local_entrega" value="{{ p.local_entrega }}" required></label>
+  <label>WhatsApp (com DDD)<input name="whatsapp" value="{{ p.whatsapp }}" required></label>
+  <label>Imagem {{ '(deixe vazio para manter a atual)' if p.id else '(opcional)' }}<input name="imagem" type="file" accept="image/*"></label>
+  <button class="btn">{{ 'Salvar alterações' if p.id else 'Publicar anúncio' }}</button>
+</form>
+{% endblock %}

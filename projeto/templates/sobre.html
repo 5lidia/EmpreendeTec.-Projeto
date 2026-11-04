@@ -1,0 +1,7 @@
+{% extends 'base.html' %}{% block title %}Sobre · Empreende Tec{% endblock %}
+{% block content %}
+<section class="estreito texto"><h1 class="serif">Sobre o Empreende Tec</h1>
+<p>O Empreende Tec é a vitrine dos alunos do Senac que vendem produtos e oferecem serviços: de doces e salgados a unhas, artesanato, aulas e design.</p>
+<p>Cada aluno cria sua conta, publica seus anúncios e combina tudo direto com o cliente pelo WhatsApp, com entrega ou atendimento no Senac.</p>
+<p>Quer usar os dados em outro lugar? A lista de anúncios também está disponível em <a href="{{ url_for('api_produtos') }}">JSON</a>.</p></section>
+{% endblock %}

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}Empreende Tec{% endblock %}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"></head>
+<body>
+<header class="topo"><div class="wrap topo-in">
+  <a class="marca" href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/logo.png') }}" alt="Empreende Tec"></a>
+  <nav>
+    <a href="{{ url_for('index') }}">Início</a>
+    <a href="{{ url_for('produtos') }}">Produtos e serviços</a>
+    <a href="{{ url_for('sobre') }}">Sobre</a>
+  </nav>
+  <div class="acoes">
+    {% if user %}<a href="{{ url_for('painel') }}">Meu painel</a><a class="btn" href="{{ url_for('novo_produto') }}">Anunciar</a><a href="{{ url_for('logout') }}">Sair</a>
+    {% else %}<a href="{{ url_for('login') }}">Entrar</a><a class="btn" href="{{ url_for('cadastro') }}">Quero vender</a>{% endif %}
+  </div>
+</div></header>
+<main class="wrap">
+  {% with msgs = get_flashed_messages(with_categories=true) %}{% for c, m in msgs %}<div class="aviso {{ c }}" role="status">{{ m }}</div>{% endfor %}{% endwith %}
+  {% block content %}{% endblock %}
+</main>
+<footer class="rodape"><div class="wrap grid-rod">
+  <div><strong class="serif">Empreende Tec</strong><p>Produtos e serviços de quem empreende no Senac.</p></div>
+  <div><h4>Navegar</h4><a href="{{ url_for('index') }}">Início</a><a href="{{ url_for('produtos') }}">Produtos e serviços</a><a href="{{ url_for('sobre') }}">Sobre</a><a href="{{ url_for('api_produtos') }}">API (JSON)</a></div>
+  <div><h4>Categorias</h4>{% for c in categorias[:5] %}<a href="{{ url_for('produtos', categoria=c.id) }}">{{ c.nome }}</a>{% endfor %}</div>
+</div></footer>
+</body></html>

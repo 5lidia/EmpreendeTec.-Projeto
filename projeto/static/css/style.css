@@ -1,0 +1,58 @@
+:root{--laranja:#F2A444;--pessego:#F2C185;--creme:#F2DABD;--escuro:#261C16;--vinho:#8C0303;--bg:#FCF5EA;--card:#FFFBF4}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--escuro);font:16px/1.55 'DM Sans',system-ui,sans-serif}
+.serif{font-family:'Fraunces',Georgia,serif;font-weight:800;line-height:1.1;letter-spacing:-.01em}
+a{color:var(--vinho)}img{max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+:focus-visible{outline:3px solid var(--vinho);outline-offset:2px}
+.topo{background:var(--bg);border-bottom:1px solid var(--creme);position:sticky;top:0;z-index:5}
+.topo-in{display:flex;align-items:center;gap:20px;flex-wrap:wrap;padding-top:6px;padding-bottom:6px}
+.marca img{height:56px;display:block;mix-blend-mode:multiply}
+nav{display:flex;gap:18px;flex:1}nav a,.acoes a{color:var(--escuro);text-decoration:none;font-weight:500}
+nav a:hover,.acoes a:hover{color:var(--vinho)}
+.acoes{display:flex;gap:16px;align-items:center}
+.btn,button.btn{display:inline-block;background:var(--laranja);color:var(--escuro)!important;border:0;border-radius:999px;padding:11px 22px;font:700 15px 'DM Sans',sans-serif;cursor:pointer;text-decoration:none}
+.btn:hover{background:var(--pessego)}.btn.escuro{background:var(--escuro);color:var(--creme)!important}.btn.escuro:hover{background:var(--vinho)}
+.perigo-btn{background:var(--vinho)!important;color:#fff!important}
+main{padding-top:24px;padding-bottom:56px}section{margin-top:44px}
+.aviso{padding:12px 16px;border-radius:12px;margin-bottom:12px;background:var(--creme)}.aviso.danger{background:var(--vinho);color:#fff}.aviso.success{background:#e6efd2}
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:center;background:linear-gradient(120deg,var(--creme),var(--pessego));border-radius:28px;padding:40px;margin-top:0}
+.hero h1{font-size:clamp(34px,5vw,54px);margin:0 0 14px}.hero p{max-width:46ch;margin:0 0 20px}
+.hero-img img{mix-blend-mode:multiply;border-radius:24px}
+.busca,.filtros{display:flex;gap:8px;flex-wrap:wrap}
+.busca{background:#fff;border-radius:999px;padding:6px;max-width:560px}.busca input{flex:1;min-width:140px;border:0;background:none;padding:8px 14px;font:inherit}.busca select{border:0;background:none;font:inherit}
+.vantagens{list-style:none;display:flex;gap:18px;flex-wrap:wrap;padding:0;margin:20px 0 0;font-weight:500}
+.vantagens li::before{content:"✓ ";color:var(--vinho);font-weight:700}
+.cats{display:flex;gap:18px;overflow-x:auto;padding-bottom:6px}
+.cats a{flex:0 0 112px;text-align:center;text-decoration:none;color:var(--escuro);font-weight:500;font-size:14px}
+.bola{display:grid;place-items:center;width:84px;height:84px;margin:0 auto 8px;border-radius:50%;background:var(--creme);font-size:34px}
+.cats a:hover .bola{background:var(--laranja)}
+.cab{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.cab h2,h1{margin:0 0 14px}
+.grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--creme);border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;display:block}
+.card:hover{border-color:var(--laranja)}
+.thumb{position:relative;aspect-ratio:4/3;background:var(--creme);display:grid;place-items:center;overflow:hidden}
+.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.emoji{font-size:54px}
+.tag{position:absolute;top:10px;left:10px;background:var(--escuro);color:var(--creme);border-radius:999px;padding:2px 12px;font-size:13px;font-weight:700}
+.tag.fixa{position:static;display:inline-block}
+.card-body{padding:14px 16px 16px}.card h3{margin:0;font-size:18px}.muted{color:#6b5a4d;margin:2px 0;font-size:14px}
+.linha{display:flex;justify-content:space-between;align-items:center;margin-top:8px}.preco{color:var(--vinho);font-size:18px}
+.esgotado{background:var(--vinho);color:#fff;border-radius:999px;padding:2px 10px;font-size:13px;display:inline-block}
+.faixa{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;background:var(--laranja);border-radius:28px;padding:32px 40px}
+.faixa h2{margin:0 0 6px;font-size:28px}.faixa p{margin:0}
+.filtros{margin:6px 0 24px}.filtros input,.filtros select,.form input,.form select,.form textarea{border:1px solid var(--pessego);border-radius:12px;padding:10px 12px;font:inherit;background:#fff}
+.filtros input{flex:1;min-width:200px}
+.vazio{background:var(--creme);border-radius:20px;padding:28px;text-align:center}
+.detalhe{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}.thumb.grande{border-radius:24px}.grande-preco{font-size:30px;margin:4px 0 12px;font-weight:700}
+.dados{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin:16px 0 24px}.dados dt{font-weight:700}.dados dd{margin:0}
+.form{display:flex;flex-direction:column;gap:14px;background:var(--card);border:1px solid var(--creme);border-radius:24px;padding:28px;margin:0 auto 24px}
+.form label{display:flex;flex-direction:column;gap:4px;font-weight:500}.form .btn{align-self:flex-start}
+.estreito{max-width:560px}.texto{margin-inline:auto}.texto p{max-width:62ch}
+.avatar{width:96px;height:96px;border-radius:50%;object-fit:cover}
+.stats{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:12px}.stats div{background:var(--creme);border-radius:18px;padding:14px 22px;min-width:130px}.stats strong{display:block;font:800 30px 'Fraunces',serif}
+.tabela{overflow-x:auto}table{width:100%;border-collapse:collapse;background:var(--card);border-radius:16px}th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--creme)}
+.acoes-linha{display:flex;gap:12px;align-items:center}.acoes-linha form{margin:0}.link{background:none;border:0;font:inherit;cursor:pointer;padding:0;text-decoration:underline}.perigo{color:var(--vinho)}
+.rodape{background:var(--escuro);color:var(--creme);padding:36px 0;margin-top:20px}.rodape a{display:block;color:var(--creme);text-decoration:none;margin:4px 0}.rodape a:hover{color:var(--laranja)}
+.rodape h4{margin:0 0 8px}.grid-rod{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px}.rodape .serif{font-size:22px}
+@media(max-width:760px){.hero,.detalhe,.grid-rod{grid-template-columns:1fr}.hero{padding:24px}nav{order:3;flex-basis:100%}.faixa{padding:24px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}

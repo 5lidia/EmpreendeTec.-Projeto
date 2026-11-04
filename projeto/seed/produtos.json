@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "usuario_id": 6,
+        "nome": "Unha Decorada",
+        "categoria": "Serviço",
+        "descricao": "Renovando sua autoestima com sucesso!",
+        "preco": 100.0,
+        "quantidade": 2,
+        "pagamento": "PIX",
+        "local_entrega": "Senac ZN",
+        "whatsapp": "800840380584038",
+        "imagem": "1_WhatsApp_Image_2026-08-04_at_14.25.43.jpeg",
+        "views": 5,
+        "created_at": "04/08/2026",
+        "status": "Disponível"
+    },
+    {
+        "id": 2,
+        "usuario_id": 7,
+        "nome": "Empada Doce",
+        "categoria": "Doces",
+        "descricao": "Perfeita pro seu lanche!",
+        "preco": 3.5,
+        "quantidade": 5,
+        "pagamento": "PIX",
+        "local_entrega": "Senac ZN",
+        "whatsapp": "784531207845120",
+        "imagem": "2_empada.jpg",
+        "views": 2,
+        "created_at": "04/08/2026",
+        "status": "Disponível"
+    },
+    {
+        "id": 3,
+        "usuario_id": 8,
+        "nome": "Pipoca Doce",
+        "categoria": "Doces",
+        "descricao": "A melhor pipoca!",
+        "preco": 7.0,
+        "quantidade": 1,
+        "pagamento": "PIX",
+        "local_entrega": "Senac ZN",
+        "whatsapp": "84653120856",
+        "imagem": "3_e9ade54bcd41c186f40b423e5c4dc324_XL.jpg",
+        "views": 1,
+        "created_at": "04/08/2026",
+        "status": "Disponível"
+    }
+]

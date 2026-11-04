@@ -1,0 +1,90 @@
+[
+    {
+        "id": 1,
+        "nome": "Gaby Cortez",
+        "turma": "2º A",
+        "email": "gabycortez@rn.senac.com",
+        "telefone": "84996043962",
+        "usuario": "Gabycortez",
+        "senha": "scrypt:32768:8:1$mAIce3vl4BscrsZb$f3e904f5001600177c87c9db86c9ce57f472416ea34817da0511b72aefeeb5288fe690d19869ab260b5e23cdaec40ee95d83f8ebbb45000701cb0e5e8a868763",
+        "foto": "",
+        "loja": "Gaby's"
+    },
+    {
+        "id": 2,
+        "nome": "Rebecca Loren",
+        "turma": "2º A",
+        "email": "Lorenrebecca7@gmail.com",
+        "telefone": "84996043962",
+        "usuario": "Rebecca Loren",
+        "senha": "scrypt:32768:8:1$gireoZOj1PkI7O1V$bc64e117fd6ef82ed9568f60f3e1ebdea54d4a88a4e028f7539c1a607b98d43c9734d7281d457133c191cb22f3fc88b9dcf7ca6d8aa70f4a65e42f93ae6c1bd3",
+        "foto": "",
+        "loja": "Loren Lash Design"
+    },
+    {
+        "id": 3,
+        "nome": "Rebecca Loren",
+        "turma": "2º A",
+        "email": "lorenrebecca7@gmail.com",
+        "telefone": "84996043962",
+        "usuario": "Rebecca7",
+        "senha": "pbkdf2:sha256:1000000$gUU2IQYCl8WXO2jd$025e4ef7672ba5e157388e126410f64da7b1a3806102c0bdc4404b042370f35e",
+        "foto": "3_images.jpg",
+        "loja": "Loren Lash"
+    },
+    {
+        "id": 4,
+        "nome": "Gaby",
+        "turma": "2",
+        "email": "cortez@gmail.com",
+        "telefone": "888888888888",
+        "usuario": "Gaby",
+        "senha": "pbkdf2:sha256:1000000$tBIA9nlKgjOcggTi$1b17a1f69f495da0175ded375b81413ed3f2483cf766b38654af2e1c6ada07f9",
+        "foto": "",
+        "loja": ""
+    },
+    {
+        "id": 5,
+        "nome": "Gaby",
+        "turma": "2A",
+        "email": "cortez@gmail.com",
+        "telefone": "555555555",
+        "usuario": "Gabs",
+        "senha": "pbkdf2:sha256:1000000$VAm0ICMpFxnHNAXq$c057ac36956546ca2a813b5497b19e30b23e02a9eb45ddf7ec5324b73c19ce56",
+        "foto": "",
+        "loja": ""
+    },
+    {
+        "id": 6,
+        "nome": "Vivianne Louize",
+        "turma": "2° ano A",
+        "email": "vivi@gmail.com",
+        "telefone": "940992354",
+        "usuario": "vivizz",
+        "senha": "pbkdf2:sha256:1000000$5kbVC70a2i3FsK01$fba0314535793c60770ffb91b05d962b740aaa5c1a61ff66731c60b8e005219e",
+        "foto": "6_WhatsApp_Image_2026-08-04_at_14.30.47.jpeg",
+        "loja": "byvinails"
+    },
+    {
+        "id": 7,
+        "nome": "Lídia Othilia",
+        "turma": "2° AM",
+        "email": "lidia@gmail.com",
+        "telefone": "45678907890",
+        "usuario": "Lidss",
+        "senha": "pbkdf2:sha256:1000000$Z7FZ5yt1vUN3n9vR$a8332b5e951667c9331bb888cca73fce5f9d5f016346d38909c01215c88a1077",
+        "foto": "",
+        "loja": "Doce empada"
+    },
+    {
+        "id": 8,
+        "nome": "Marcos Alexandre",
+        "turma": "2° AM",
+        "email": "marcos.a@gmail.com",
+        "telefone": "7845129865132",
+        "usuario": "Marcos",
+        "senha": "pbkdf2:sha256:1000000$lw8QZvIiBoCErAV5$795aa0c4c413b1af2f8a86471d4b86d0bc06f9e7285e608cbec80218da7e8913",
+        "foto": "",
+        "loja": "Pipoca do Sonhos"
+    }
+]

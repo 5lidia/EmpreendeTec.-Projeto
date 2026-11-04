@@ -1,0 +1,15 @@
+{% extends 'base.html' %}{% block title %}Cadastro · Empreende Tec{% endblock %}
+{% block content %}
+<form class="form estreito" method="post" enctype="multipart/form-data"><h1 class="serif">Criar conta</h1>
+  <label>Nome completo<input name="nome" value="{{ f.nome }}" required></label>
+  <label>Turma<input name="turma" value="{{ f.turma }}" required></label>
+  <label>E-mail<input name="email" type="email" value="{{ f.email }}" required></label>
+  <label>Telefone<input name="telefone" value="{{ f.telefone }}" required></label>
+  <label>Nome da loja (opcional)<input name="loja" value="{{ f.loja }}"></label>
+  <label>Usuário<input name="usuario" value="{{ f.usuario }}" required></label>
+  <label>Senha<input name="senha" type="password" required></label>
+  <label>Confirmar senha<input name="confirmar_senha" type="password" required></label>
+  <label>Foto (opcional)<input name="foto" type="file" accept="image/*"></label>
+  <button class="btn">Criar conta</button>
+</form>
+{% endblock %}

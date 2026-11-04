@@ -1,0 +1,8 @@
+{% extends 'base.html' %}{% block title %}Meu perfil · Empreende Tec{% endblock %}
+{% block content %}
+<section class="form estreito"><h1 class="serif">{{ user.loja or user.nome }}</h1>
+  {% if user.foto %}<img class="avatar" src="{{ url_for('uploaded_file', filename=user.foto) }}" alt="Foto de {{ user.nome }}" onerror="this.remove()">{% endif %}
+  <dl class="dados"><dt>Nome</dt><dd>{{ user.nome }}</dd><dt>Turma</dt><dd>{{ user.turma }}</dd><dt>E-mail</dt><dd>{{ user.email }}</dd><dt>Telefone</dt><dd>{{ user.telefone }}</dd><dt>Usuário</dt><dd>{{ user.usuario }}</dd><dt>Anúncios</dt><dd>{{ total }}</dd></dl>
+  <a class="btn" href="{{ url_for('editar_perfil') }}">Editar perfil</a>
+</section>
+{% endblock %}

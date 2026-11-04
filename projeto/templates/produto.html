@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}{{ p.nome }} · Empreende Tec{% endblock %}
+{% block content %}
+<article class="detalhe">
+  <div class="thumb grande"><span class="emoji">{{ p.icone }}</span>{% if p.imagem %}<img src="{{ url_for('uploaded_file', filename=p.imagem) }}" alt="{{ p.nome }}" onerror="this.remove()">{% endif %}</div>
+  <div>
+    <span class="tag fixa">{{ p.tipo }}</span>
+    <h1 class="serif">{{ p.nome }}</h1>
+    <p class="preco grande-preco">{{ p.preco|brl }}</p>
+    <p>{{ p.descricao }}</p>
+    <dl class="dados">
+      <dt>Categoria</dt><dd>{{ p.categoria }}</dd>
+      <dt>{{ 'Vagas' if p.tipo == 'Serviço' else 'Em estoque' }}</dt><dd>{{ p.quantidade }}</dd>
+      <dt>Pagamento</dt><dd>{{ p.pagamento }}</dd>
+      <dt>Local</dt><dd>{{ p.local_entrega }}</dd>
+      <dt>Vendedor</dt><dd>{{ p.loja or p.vendedor }}{% if p.loja %} ({{ p.vendedor }}){% endif %}</dd>
+    </dl>
+    {% if p.status == 'Disponível' %}<a class="btn" href="https://wa.me/55{{ p.whatsapp|digitos }}?text={{ ('Olá! Vi ' ~ p.nome ~ ' no Empreende Tec.')|urlencode }}" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+    {% else %}<p class="esgotado">Esgotado no momento</p>{% endif %}
+  </div>
+</article>
+{% endblock %}

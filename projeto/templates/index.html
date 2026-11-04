@@ -1,0 +1,31 @@
+{% extends 'base.html' %}{% from '_card.html' import card %}
+{% block content %}
+<section class="hero">
+  <div>
+    <h1 class="serif">Compre e contrate de quem empreende perto de você</h1>
+    <p>Doces, unhas, artesanato, aulas, design e muito mais, feitos pelos alunos do Senac.</p>
+    <form class="busca" action="{{ url_for('produtos') }}">
+      <input name="q" placeholder="O que você procura?" aria-label="Buscar">
+      <select name="tipo" aria-label="Tipo"><option value="">Tudo</option>{% for t in TIPOS %}<option>{{ t }}</option>{% endfor %}</select>
+      <button class="btn">Buscar</button>
+    </form>
+    <ul class="vantagens"><li>Contato direto no WhatsApp</li><li>Entrega no Senac</li><li>Feito por alunos</li></ul>
+  </div>
+  <div class="hero-img"><img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo Empreende Tec"></div>
+</section>
+
+<section><div class="cats">
+  {% for c in categorias %}<a href="{{ url_for('produtos', categoria=c.id) }}"><span class="bola">{{ c.icone }}</span>{{ c.nome }}</a>{% endfor %}
+</div></section>
+
+<section>
+  <div class="cab"><h2 class="serif">Destaques</h2><a href="{{ url_for('produtos') }}">Ver tudo</a></div>
+  {% if destaques %}<div class="grade">{% for p in destaques %}{{ card(p) }}{% endfor %}</div>
+  {% else %}<p class="vazio">Ainda não há anúncios. <a href="{{ url_for('novo_produto') }}">Publique o primeiro.</a></p>{% endif %}
+</section>
+
+<section class="faixa">
+  <div><h2 class="serif">Tem algo para vender ou um serviço para oferecer?</h2><p>Crie sua conta, monte sua vitrine e receba pedidos direto no WhatsApp.</p></div>
+  <a class="btn escuro" href="{{ url_for('cadastro') }}">Criar minha vitrine</a>
+</section>
+{% endblock %}

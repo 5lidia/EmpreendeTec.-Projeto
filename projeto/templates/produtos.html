@@ -1,0 +1,13 @@
+{% extends 'base.html' %}{% from '_card.html' import card %}
+{% block title %}Produtos e serviços · Empreende Tec{% endblock %}
+{% block content %}
+<h1 class="serif">Produtos e serviços</h1>
+<form class="filtros" method="get">
+  <input name="q" value="{{ f.q }}" placeholder="Buscar por nome ou descrição" aria-label="Buscar">
+  <select name="tipo" aria-label="Tipo"><option value="">Produtos e serviços</option>{% for t in TIPOS %}<option {{ 'selected' if f.tipo == t }}>{{ t }}</option>{% endfor %}</select>
+  <select name="categoria" aria-label="Categoria"><option value="">Todas as categorias</option>{% for c in categorias %}<option value="{{ c.id }}" {{ 'selected' if f.categoria == c.id|string }}>{{ c.nome }}</option>{% endfor %}</select>
+  <button class="btn">Filtrar</button>
+</form>
+{% if items %}<div class="grade">{% for p in items %}{{ card(p) }}{% endfor %}</div>
+{% else %}<p class="vazio">Nada encontrado. Tente outra palavra ou <a href="{{ url_for('produtos') }}">limpe os filtros</a>.</p>{% endif %}
+{% endblock %}
