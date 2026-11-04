@@ -1,0 +1,6 @@
+{% extends 'base.html' %}{% block titulo %}Cadastro{% endblock %}{% block conteudo %}
+<h1>Crie sua conta de vendedor</h1>
+<form class="f card" method="post" enctype="multipart/form-data">{% set v = f %}{% include '_campos_usuario.html' %}
+<label>Senha *<input name="senha" type="password" required></label><label>Confirmar senha *<input name="confirmar_senha" type="password" required></label>
+<div class="botoes"><button class="btn">Cadastrar</button><a class="btn btn-sec" href="{{ url_for('login') }}">Já tenho conta</a></div></form>
+{% endblock %}

@@ -1,0 +1,5 @@
+{% macro card(p) %}<div class="card">
+{% if p.imagem %}<img src="{{ url_for('uploaded_file', filename=p.imagem) }}" alt="{{ p.nome }}">{% else %}<img src="{{ url_for('static', filename='img/logo.png') }}" alt="" style="object-fit:contain">{% endif %}
+<div><span class="badge">{{ p.icone }} {{ p.categoria }}</span> <span class="tag">{{ p.tipo }}</span>{% if p.status=='Esgotado' %} <span class="tag" style="background:var(--vinho);color:var(--creme)">Esgotado</span>{% endif %}</div>
+<h3>{{ p.nome }}</h3><span class="preco">{{ p.preco|brl }}</span><small>por {{ p.loja or p.vendedor }}</small>
+<a class="btn" href="{{ url_for('produto', produto_id=p.id) }}">Ver e comprar</a></div>{% endmacro %}

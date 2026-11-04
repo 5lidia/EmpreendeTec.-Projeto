@@ -1,0 +1,15 @@
+{% extends 'base.html' %}{% block titulo %}{{ 'Editar anúncio' if p.id else 'Novo anúncio' }}{% endblock %}{% block conteudo %}
+<h1>{{ 'Editar anúncio' if p.id else 'Novo anúncio' }}</h1>
+<form class="f card" method="post" enctype="multipart/form-data">
+<label>Nome *<input name="nome" required value="{{ p.nome or '' }}"></label>
+<label>Tipo *<select name="tipo">{% for t in TIPOS %}<option {% if p.tipo==t %}selected{% endif %}>{{ t }}</option>{% endfor %}</select></label>
+<label>Categoria *<select name="categoria_id">{% for c in categorias %}<option value="{{ c.id }}" {% if p.categoria_id==c.id %}selected{% endif %}>{{ c.icone }} {{ c.nome }}</option>{% endfor %}</select></label>
+<label>Descrição *<textarea name="descricao" rows="4" required>{{ p.descricao or '' }}</textarea></label>
+<label>Preço (R$) *<input name="preco" required value="{{ p.preco if p.preco is not none else '' }}"></label>
+<label>Quantidade *<input name="quantidade" type="number" min="0" required value="{{ p.quantidade if p.quantidade is not none else '' }}"></label>
+<label>Formas de pagamento *<input name="pagamento" required value="{{ p.pagamento or '' }}" placeholder="Pix, dinheiro..."></label>
+<label>Local de entrega *<input name="local_entrega" required value="{{ p.local_entrega or '' }}"></label>
+<label>WhatsApp *<input name="whatsapp" required value="{{ p.whatsapp or '' }}"></label>
+<label>Imagem<input type="file" name="imagem" accept="image/*"></label>
+<div class="botoes"><button class="btn">{{ 'Salvar' if p.id else 'Publicar' }}</button><a class="btn btn-sec" href="{{ url_for('painel') }}">Cancelar</a></div></form>
+{% endblock %}

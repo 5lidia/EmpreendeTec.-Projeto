@@ -1,0 +1,4 @@
+{% extends 'base.html' %}{% block titulo %}Sobre{% endblock %}{% block conteudo %}
+<h1>Sobre o Empreende Tec</h1><p>Uma vitrine para estudantes divulgarem seus produtos e serviços: doces, bebidas, lanches, artesanato, roupas, materiais, serviços e outros.</p>
+<div class="botoes"><a class="btn" href="{{ url_for('produtos') }}">Ver anúncios</a><a class="btn btn-sec" href="{{ url_for('cadastro') }}">Quero vender</a></div>
+{% endblock %}

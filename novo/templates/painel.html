@@ -1,0 +1,15 @@
+{% extends 'base.html' %}{% block titulo %}Meu painel{% endblock %}{% block conteudo %}
+<h1>Olá, {{ user.nome }}!</h1>
+<div class="botoes"><a class="btn" href="{{ url_for('novo_produto') }}">+ Novo anúncio</a><a class="btn btn-sec" href="{{ url_for('perfil') }}">Meu perfil</a><a class="btn btn-sec" href="{{ url_for('editar_perfil') }}">Editar perfil</a><a class="btn btn-sec" href="{{ url_for('logout') }}">Sair</a></div>
+<div class="stats"><div class="card">Anúncios<strong>{{ itens|length }}</strong></div><div class="card">Visualizações<strong>{{ views }}</strong></div><div class="card">Esgotados<strong>{{ esgotados }}</strong></div><div class="card">Interessados<strong>{{ pedidos|length }}</strong></div></div>
+<h2>Meus anúncios</h2>
+{% if itens %}<table><tr><th>Nome</th><th>Preço</th><th>Qtd.</th><th>Status</th><th>Ações</th></tr>
+{% for i in itens %}<tr><td>{{ i.nome }}</td><td>{{ i.preco|brl }}</td><td>{{ i.quantidade }}</td><td>{{ i.status }}</td>
+<td><div class="botoes"><a class="btn btn-sm btn-sec" href="{{ url_for('produto', produto_id=i.id) }}">Ver</a><a class="btn btn-sm" href="{{ url_for('editar', produto_id=i.id) }}">Editar</a>
+<form method="post" action="{{ url_for('excluir', produto_id=i.id) }}" onsubmit="return confirm('Excluir este anúncio?')"><button class="btn btn-sm btn-perigo">Excluir</button></form></div></td></tr>{% endfor %}</table>
+{% else %}<p>Você ainda não tem anúncios.</p>{% endif %}
+<h2 style="margin-top:2rem">Clientes interessados</h2>
+{% if pedidos %}<table><tr><th>Data</th><th>Produto</th><th>Cliente</th><th>Contato</th><th>Qtd.</th><th>Mensagem</th></tr>
+{% for c in pedidos %}<tr><td>{{ c.created_at }}</td><td>{{ c.produto }}</td><td>{{ c.nome }}</td><td>{{ c.email }}<br><a href="https://wa.me/55{{ c.telefone|digitos }}" target="_blank">{{ c.telefone }}</a></td><td>{{ c.quantidade }}</td><td>{{ c.mensagem }}</td></tr>{% endfor %}</table>
+{% else %}<p>Ninguém se cadastrou para comprar ainda.</p>{% endif %}
+{% endblock %}

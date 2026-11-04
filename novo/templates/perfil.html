@@ -1,0 +1,7 @@
+{% extends 'base.html' %}{% block titulo %}Perfil{% endblock %}{% block conteudo %}
+<div class="card" style="max-width:560px">
+{% if user.foto %}<img src="{{ url_for('uploaded_file', filename=user.foto) }}" alt="" style="width:120px;height:120px;border-radius:50%;aspect-ratio:1">{% endif %}
+<h1>{{ user.nome }}</h1><p><b>Loja:</b> {{ user.loja or '—' }}<br><b>Turma:</b> {{ user.turma }}<br><b>E-mail:</b> {{ user.email }}<br><b>Telefone:</b> {{ user.telefone }}<br><b>Usuário:</b> {{ user.usuario }}<br><b>Anúncios:</b> {{ total }}</p>
+<div class="botoes"><a class="btn" href="{{ url_for('painel') }}">Meu painel</a><a class="btn btn-sec" href="{{ url_for('editar_perfil') }}">Editar perfil</a>
+<form method="post" action="{{ url_for('excluir_conta') }}" onsubmit="return confirm('Excluir sua conta e todos os anúncios?')"><button class="btn btn-perigo">Excluir conta</button></form></div></div>
+{% endblock %}

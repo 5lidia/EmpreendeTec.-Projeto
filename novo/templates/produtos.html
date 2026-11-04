@@ -1,0 +1,8 @@
+{% extends 'base.html' %}{% from '_card.html' import card %}{% block titulo %}Produtos e serviços{% endblock %}{% block conteudo %}
+<h1>Produtos e serviços</h1>
+<form method="get" class="botoes"><input name="q" value="{{ f.q }}" placeholder="Buscar..." style="max-width:260px">
+<select name="tipo" style="max-width:160px"><option value="">Todos os tipos</option>{% for t in TIPOS %}<option {% if f.tipo==t %}selected{% endif %}>{{ t }}</option>{% endfor %}</select>
+<select name="categoria" style="max-width:190px"><option value="">Todas as categorias</option>{% for c in categorias %}<option value="{{ c.id }}" {% if f.categoria==c.id|string %}selected{% endif %}>{{ c.icone }} {{ c.nome }}</option>{% endfor %}</select>
+<button class="btn">Filtrar</button><a class="btn btn-sec" href="{{ url_for('produtos') }}">Limpar</a></form>
+{% if items %}<div class="grid">{% for p in items %}{{ card(p) }}{% endfor %}</div>{% else %}<p>Nada encontrado.</p>{% endif %}
+{% endblock %}

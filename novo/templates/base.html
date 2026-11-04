@@ -1,0 +1,17 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block titulo %}Empreende Tec{% endblock %} · Empreende Tec</title>
+<link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cores.css') }}"></head><body>
+<header><div class="wrap">
+<a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/logo.png') }}" alt="Empreende Tec" class="logo"></a>
+<nav><a href="{{ url_for('index') }}">Início</a><a href="{{ url_for('produtos') }}">Produtos e serviços</a><a href="{{ url_for('sobre') }}">Sobre</a>
+{% if user %}<a href="{{ url_for('painel') }}">Meu painel</a><a href="{{ url_for('perfil') }}">Perfil</a><a href="{{ url_for('logout') }}">Sair</a>
+{% else %}<a href="{{ url_for('login') }}">Entrar</a><a class="btn" href="{{ url_for('cadastro') }}">Quero vender</a>{% endif %}</nav>
+</div></header>
+<main><div class="wrap">
+{% for cat, msg in get_flashed_messages(with_categories=true) %}<div class="flash {{ cat }}">{{ msg }}</div>{% endfor %}
+{% block conteudo %}{% endblock %}
+</div></main>
+<footer><div class="wrap">Empreende Tec · produtos e serviços feitos por estudantes</div></footer>
+</body></html>

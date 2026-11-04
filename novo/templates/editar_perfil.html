@@ -1,0 +1,6 @@
+{% extends 'base.html' %}{% block titulo %}Editar perfil{% endblock %}{% block conteudo %}
+<h1>Editar perfil</h1>
+<form class="f card" method="post" enctype="multipart/form-data">{% set v = user %}{% include '_campos_usuario.html' %}
+<label>Nova senha (opcional)<input name="senha" type="password"></label><label>Confirmar nova senha<input name="confirmar_senha" type="password"></label>
+<div class="botoes"><button class="btn">Salvar</button><a class="btn btn-sec" href="{{ url_for('perfil') }}">Cancelar</a></div></form>
+{% endblock %}

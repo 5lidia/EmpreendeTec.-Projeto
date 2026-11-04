@@ -1,0 +1,16 @@
+{% extends 'base.html' %}{% block titulo %}{{ p.nome }}{% endblock %}{% block conteudo %}
+<div class="det"><div>{% if p.imagem %}<img src="{{ url_for('uploaded_file', filename=p.imagem) }}" alt="{{ p.nome }}">{% else %}<img src="{{ url_for('static', filename='img/logo.png') }}" alt="">{% endif %}</div>
+<div><span class="badge">{{ p.icone }} {{ p.categoria }}</span> <span class="tag">{{ p.tipo }}</span> <span class="tag">{{ p.status }}</span>
+<h1>{{ p.nome }}</h1><p class="preco" style="font-size:1.6rem">{{ p.preco|brl }}</p><p>{{ p.descricao }}</p>
+<p><b>Pagamento:</b> {{ p.pagamento }}<br><b>Entrega:</b> {{ p.local_entrega }}<br><b>Disponível:</b> {{ p.quantidade }}<br><b>Vendedor:</b> {{ p.loja or vendedor.nome }} ({{ vendedor.turma }})</p>
+<div class="botoes"><a class="btn" href="#comprar">Quero comprar</a><a class="btn btn-sec" target="_blank" href="https://wa.me/55{{ p.whatsapp|digitos }}?text={{ ('Olá! Tenho interesse em ' ~ p.nome)|urlencode }}">Falar no WhatsApp</a></div></div></div>
+<section id="comprar" class="card" style="margin-top:2rem;max-width:620px">
+<h2>Cadastre-se para comprar</h2><p>Deixe seus dados e o vendedor entra em contato para combinar a compra.</p>
+<form class="f" method="post" action="{{ url_for('interesse', produto_id=p.id) }}">
+<label>Nome *<input name="nome" required maxlength="100"></label>
+<label>E-mail *<input name="email" type="email" required maxlength="150"></label>
+<label>Telefone / WhatsApp *<input name="telefone" required maxlength="20"></label>
+<label>Quantidade<input name="quantidade" type="number" min="1" value="1"></label>
+<label>Mensagem<textarea name="mensagem" rows="3" maxlength="500"></textarea></label>
+<button class="btn">Enviar cadastro</button></form></section>
+{% endblock %}

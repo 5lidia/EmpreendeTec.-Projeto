@@ -1,0 +1,9 @@
+{% extends 'base.html' %}{% from '_card.html' import card %}{% block titulo %}Início{% endblock %}{% block conteudo %}
+<section class="hero"><img src="{{ url_for('static', filename='img/logo.png') }}" alt="Empreende Tec">
+<div><h1>Produtos e serviços dos estudantes</h1><p>Doces, lanches, artesanato, roupas, materiais, serviços e muito mais, direto de quem faz.</p>
+<div class="botoes"><a class="btn" href="{{ url_for('produtos') }}">Ver tudo</a><a class="btn btn-sec" href="{{ url_for('cadastro') }}">Anunciar o meu</a></div></div></section>
+<div class="cats">{% for c in categorias %}<a class="badge" href="{{ url_for('produtos', categoria=c.id) }}">{{ c.icone }} {{ c.nome }}</a>{% endfor %}</div>
+<h2>Em destaque</h2>
+{% if destaques %}<div class="grid">{% for p in destaques %}{{ card(p) }}{% endfor %}</div>
+{% else %}<p>Ainda não há anúncios. <a href="{{ url_for('cadastro') }}">Seja o primeiro!</a></p>{% endif %}
+{% endblock %}
